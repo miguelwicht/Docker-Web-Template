@@ -93,13 +93,22 @@ Use ```make export``` to prepare a new image for deployment. The script will reb
 
 ### Composer and node.js
 
-### Node.js
+#### Composer
 
 Composer can be installed with the install_composer.sh script from within the web container.
 
 ```
+# Connect into the container
+docker exec -it projectname_web_1 /bin/bash
+
+# Install Composer
+php /var/www/_utils/install_composer.sh
+
+# Use Composer
 php /var/www/_utils/composer.phar install
 ```
+
+#### Node.js
 
 For convenience you can use the node.sh script. Just make sure they are executable.
 
