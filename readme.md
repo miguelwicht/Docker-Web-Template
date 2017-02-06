@@ -124,3 +124,15 @@ _helpers/node.sh "npm run dev"
 _helpers/node.sh "npm run production"
 _helpers/node.sh "npm run watch"
 ```
+
+### Xdebug
+
+Xdebug is setup to connect to ```10.254.254.254:9000```. Docker for Mac does not support ```xdebug.remote_connect_back``` so we have to add a loopback device and connect to that. Xdebug is only installed in the development environment.
+
+```
+# Create loopback device
+ifconfig lo0 alias 10.254.254.254
+
+# Remove loopback device
+ifconfig lo0 -alias 10.254.254.254
+```
